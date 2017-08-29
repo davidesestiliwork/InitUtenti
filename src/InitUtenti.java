@@ -50,13 +50,11 @@ public class InitUtenti
 	protected static String getPasswordHashCode(String password) throws Exception
 	{
 		MessageDigest md = MessageDigest.getInstance("SHA-512");
-		char random = (char)(Math.random() * 128);
-		String pwd = new String(password + random);
-		md.digest(pwd.getBytes());
+		md.digest(password.getBytes());
 		byte[] data = md.digest();
 		return byteArray2Hex(data);
 	}	
-	
+
 	protected static String byteArray2Hex(byte[] hash) 
 	{
 	    Formatter formatter = new Formatter();
