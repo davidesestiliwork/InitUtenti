@@ -50,7 +50,7 @@ public class InitUtenti
 	protected static String getPasswordHashCode(String password) throws Exception
 	{
 		MessageDigest md = MessageDigest.getInstance("SHA-512");
-		md.digest(password.getBytes());
+		md.update(password.getBytes());
 		byte[] data = md.digest();
 		return byteArray2Hex(data);
 	}	
